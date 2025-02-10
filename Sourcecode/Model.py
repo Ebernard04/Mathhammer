@@ -3,8 +3,8 @@ import numpy as np
 import random
 import math
 
-class Unit:
-    def __init__(self, faction, name, movement, toughness, save, wound, leadership, objective_control, battleshocked, alive=True):
+class Model:
+    def __init__(self, faction, name, movement, toughness, save, wound, leadership, objective_control, battleshocked, melee:list[weapon], ranged:list[weapon], alive=True):
         self.faction = faction
         self.name = name
         self.movement = movement
@@ -15,6 +15,8 @@ class Unit:
         self.objective_control = objective_control
         self.battleshocked = battleshocked
         self.alive = alive
+        self.melee = melee
+        self.ranged = ranged
 
     def roll_save(self, wounds, pen, modifiers, invuln = False, invuln_value=6, crit = 6, reroll_ones = False, reroll_all = False, crit_effect = False):
         mod = self.save
@@ -72,4 +74,29 @@ class Unit:
             self.wound = hp_left
             res = np.array([True,0,damage])
 
-            
+    def attack_melee(self, toughness, hit_mod, wound_mod):
+        if(self.alive):
+            result = np.array([0,0,0,0])
+            for x in self.melee:
+                temp = x.use(hit_mod,wound_mod,toughness)
+                result[0]+=temp[0]
+                result[1]+=temp[1]
+                result[2]+=temp[2]
+                result[3]+=temp[3]
+            return result
+        else:
+            return np.array([0,0,0,0])
+        
+    def attack_ranged(self, toughness, hit_mod, wound_mod, distance):
+        if(self.alive):
+            result = np.array([0,0,0,0])
+            for x in self.melee:
+                if(distance <= x.getRange()):
+                    temp = x.use(hit_mod,wound_mod,toughness)
+                    result[0]+=temp[0]
+                    result[1]+=temp[1]
+                    result[2]+=temp[2]
+                    result[3]+=temp[3]
+            return result
+        else:
+            return np.array([0,0,0,0])

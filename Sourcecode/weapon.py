@@ -127,3 +127,5 @@ class weapon:
         output = np.append(wound_data,atk_data) ## array should have format [wounds, dev wounds, pen value, damage per wound]
         return output
 
+    def getRange(self):
+        return self.range
