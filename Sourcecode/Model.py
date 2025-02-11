@@ -26,6 +26,120 @@ class Model:
         self.fnp = fnp #does model have a feel no pain
         self.fnp_val = fnp_val #what is the roll for feel no pain
 
+    # Getters and Setters
+    def get_faction(self):
+        return self._faction
+    
+    def set_faction(self, value):
+        self._faction = value
+
+    def get_name(self):
+        return self._name
+    
+    def set_name(self, value):
+        self._name = value
+
+    def get_movement(self):
+        return self._movement
+    
+    def set_movement(self, value):
+        self._movement = value
+
+    def get_toughness(self):
+        return self._toughness
+    
+    def set_toughness(self, value):
+        self._toughness = value
+
+    def get_save(self):
+        return self._save
+    
+    def set_save(self, value):
+        self._save = value
+
+    def get_wound(self):
+        return self._wound
+    
+    def set_wound(self, value):
+        self._wound = value
+
+    def get_leadership(self):
+        return self._leadership
+    
+    def set_leadership(self, value):
+        self._leadership = value
+
+    def get_objective_control(self):
+        return self._objective_control
+    
+    def set_objective_control(self, value):
+        self._objective_control = value
+
+    def get_battleshocked(self):
+        return self._battleshocked
+    
+    def set_battleshocked(self, value):
+        self._battleshocked = value
+
+    def get_alive(self):
+        return self._alive
+    
+    def set_alive(self, value):
+        self._alive = value
+
+    def get_melee(self):
+        return self._melee
+    
+    def set_melee(self, value):
+        self._melee = value
+
+    def get_ranged(self):
+        return self._ranged
+    
+    def set_ranged(self, value):
+        self._ranged = value
+
+    def get_invuln_save(self):
+        return self._invuln_save
+    
+    def set_invuln_save(self, value):
+        self._invuln_save = value
+
+    def get_invuln_value(self):
+        return self._invuln_value
+    
+    def set_invuln_value(self, value):
+        self._invuln_value = value
+
+    def get_crit_save(self):
+        return self._crit_save
+    
+    def set_crit_save(self, value):
+        self._crit_save = value
+
+    def get_sv_reroll_ones(self):
+        return self._sv_reroll_ones
+    
+    def set_sv_reroll_ones(self, value):
+        self._sv_reroll_ones = value
+
+    def get_sv_reroll_all(self):
+        return self._sv_reroll_all
+    
+    def set_sv_reroll_all(self, value):
+        self._sv_reroll_all = value
+
+    def get_fnp(self):
+        return self._fnp
+    
+    def set_fnp(self, value):
+        self._fnp = value
+
+    def get_fnp_val(self):
+        return self._fnp_val
+    
+    def set_fnp_val(self, value):
+        self._fnp_val = value
 
 
     #function to determine how many wounds are saved vs go through

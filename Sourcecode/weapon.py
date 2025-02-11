@@ -22,6 +22,60 @@ class weapon:
         self.sustained_val = sustained_val
         self.rapid_val = rapid_val
                     
+    # Getters and Setters
+    def get_range(self):
+        return self._range
+    
+    def set_range(self, value):
+        self._range = value
+
+    def get_attacks(self):
+        return self._attacks
+    
+    def set_attacks(self, value):
+        self._attacks = value
+    
+    def get_skill(self):
+        return self._skill
+    
+    def set_skill(self, value):
+        self._skill = value
+    
+    def get_strength(self):
+        return self._strength
+    
+    def set_strength(self, value):
+        self._strength = value
+    
+    def get_penetration(self):
+        return self._penetration
+    
+    def set_penetration(self, value):
+        self._penetration = value
+    
+    def get_damage(self):
+        return self._damage
+    
+    def set_damage(self, value):
+        self._damage = value
+    
+    def get_abilities(self):
+        return self._abilities
+    
+    def set_abilities(self, value):
+        self._abilities = value
+    
+    def get_sustained_val(self):
+        return self._sustained_val
+    
+    def set_sustained_val(self, value):
+        self._sustained_val = value
+    
+    def get_rapid_val(self):
+        return self._rapid_val
+    
+    def set_rapid_val(self, value):
+        self._rapid_val = value
     #function to roll to hit on weapon
     # takes in modifier for hitting and then a decent amount of other characteristics   
     # fish tells you if you will reroll all non critical hits that you can vs only rerolling non hits if able 
@@ -160,7 +214,7 @@ class weapon:
         return results #returns array of [number of wounds, number of dev wounds]
     
 
-
+    #method to take in necessary information and roll both the hit and wound data and return the needed information to roll saves
     def use(self, hit_modifier, wound_modifier, toughness, distance, reroll_hit = False, reroll_wound = False, reroll_hit_ones = False, reroll_wound_ones = False, fish_hits = False, fish_wounds = False, crit = 6, sustained = False, lethal = False, devastating = False, sustained_value = 0):
         sus = False
         leth = False
@@ -177,6 +231,3 @@ class weapon:
         atk_data = np.array([self.penetration,self.damage]) #temp array with value of AP and damage to be passed forward
         output = np.append(wound_data,atk_data) ## array should have format [wounds, dev wounds, pen value, damage per wound]
         return output
-
-    def getRange(self): #return range attribute
-        return self.range
