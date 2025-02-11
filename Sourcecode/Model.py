@@ -4,7 +4,7 @@ import random
 import math
 
 class Model:
-    def __init__(self, faction, name, movement, toughness, save, wound, leadership, objective_control, battleshocked, melee:list[weapon], ranged:list[weapon], alive=True):
+    def __init__(self, faction, name, movement, toughness, save, wound, leadership, objective_control, battleshocked, melee:list[weapon.weapon], ranged:list[weapon.weapon], alive=True):
         self.faction = faction
         self.name = name
         self.movement = movement
