@@ -1,4 +1,4 @@
-import Model
+import Sourcecode.classes.Model as Model
 import numpy as np
 
 

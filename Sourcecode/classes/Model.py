@@ -1,4 +1,4 @@
-import weapon
+import Sourcecode.classes.weapon as weapon
 import numpy as np
 import random
 import math
