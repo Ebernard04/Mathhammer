@@ -1,10 +1,14 @@
-#import Sourcecode.classes.Model as model
-#import Sourcecode.classes.weapon as weapon
-#import Sourcecode.preconfigs.bolt_pistol as bp
-#import Sourcecode.preconfigs.close_combat_weapon as ccw
+from Sourcecode import *
 import dearpygui.dearpygui as dpg
 
+def create_default_weapons():
+    res = [ccw.close_combat_weapon(),bp.bolt_pistol()]
+    return res
+
+
+
 def main():
+    default_weap = create_default_weapons()
     dpg.create_context()
     dpg.create_viewport(title='Simulator Tester', width=1600, height=1600)
     with dpg.window(label="Weapon Stats",width=800, height=1600):
@@ -33,7 +37,7 @@ def main():
         dpg.add_input_int(label="Wounds",min_value=1,default_value=1)
         dpg.add_input_int(label="Leadership",min_value=2,default_value=1)
         dpg.add_input_int(label="Objective Control",min_value=1,default_value=1)
-        
+        dpg.add_combo(label="Weapon",items=default_weap)
         #creation
         dpg.add_button(label="Create Model")
     dpg.setup_dearpygui()
