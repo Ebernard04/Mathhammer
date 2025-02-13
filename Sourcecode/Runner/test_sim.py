@@ -2,7 +2,7 @@ from Sourcecode import *
 import dearpygui.dearpygui as dpg
 
 def create_default_weapons():
-    res = [ccw.close_combat_weapon(),bp.bolt_pistol()]
+    res = [close_combat_weapon(),bolt_pistol()]
     return res
 
 

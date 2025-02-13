@@ -1,2 +1,2 @@
-from classes import *
-from preconfigs import *
+from .classes import *
+from .preconfigs import *

@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Unit:
-    def __init__(self, max_size, models:tuple[Model.Model]):
+    def __init__(self, max_size, models:tuple[Model]):
         self.current_size = max_size
         self.max_size = max_size
         self.alive = True
