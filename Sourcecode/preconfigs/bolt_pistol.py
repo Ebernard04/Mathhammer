@@ -24,4 +24,9 @@ class bolt_pistol(weapon):
                             "anti-mounted": False,
                             "anti-psyker": False
                         }
-        super.__init__(self, 12, 1, 3, 4, 0, 1,weapon_attributes,0,0)
+        weapon.__init__(self, 12, 1, 3, 4, 0, 1,weapon_attributes,0,0)
+
+    def __str__(self):
+        return "Bolt Pistol"
+    def __repr__(self):
+        return "Bolt Pistol"
