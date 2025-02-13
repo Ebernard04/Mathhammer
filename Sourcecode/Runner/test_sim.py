@@ -21,6 +21,21 @@ def main():
         #creation
         dpg.add_button(label="Create Weapon")
         
+        
+    with dpg.window(label="Model Stats",width=800, height=1600, pos=[800,0]):
+        dpg.add_text("Enter Stats For your model:")
+        #stats
+        dpg.add_input_text(label="Faction", default_value="faction")
+        dpg.add_input_text(label="Name", default_value="Model 1")
+        dpg.add_input_int(label="Movement",min_value=1,default_value=1)
+        dpg.add_input_int(label="Toughness",min_value=1,default_value=1)
+        dpg.add_input_int(label="Save",min_value=2, max_value=6,default_value=2)
+        dpg.add_input_int(label="Wounds",min_value=1,default_value=1)
+        dpg.add_input_int(label="Leadership",min_value=2,default_value=1)
+        dpg.add_input_int(label="Objective Control",min_value=1,default_value=1)
+        
+        #creation
+        dpg.add_button(label="Create Model")
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.start_dearpygui()
