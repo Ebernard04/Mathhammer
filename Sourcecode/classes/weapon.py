@@ -25,10 +25,10 @@ class weapon:
                     
     # Getters and Setters
     def get_name(self):
-        return self._name
+        return self.name
     
     def set_name(self, value):
-        self._name = value
+        self.name = value
 
     def __str__(self):
         return self.name

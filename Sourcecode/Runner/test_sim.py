@@ -55,8 +55,9 @@ def main():
                                     "anti-psyker": False
                                 }
             default_weap.append(weapon(user_data[6],user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],weapon_attributes))
-            weap.__setattr__("item", default_weap)
-            #print(default_weap)
+            #weap.__setattr__("item", default_weap)
+            print(user_data[6])
+            print(default_weap[-1].get_name())
             print("weapon created")
         dpg.add_text("Enter Stats For your weapon:")
         #stats
@@ -69,7 +70,7 @@ def main():
         #label
         Wname = dpg.add_input_text(label="Name", default_value="Weapon 1")
         #creation
-        dpg.add_button(label="Create Weapon", callback= weapon_callback, user_data=[range,attacks,skill,strength,pen,damage,Wname])
+        dpg.add_button(label="Create Weapon", callback= weapon_callback, user_data=[range,attacks,skill,strength,pen,damage,Wname.value])
         
         
    
