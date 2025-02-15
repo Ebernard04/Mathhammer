@@ -10,7 +10,7 @@ class weapon:
     #precision, blast, heavy, hazardous, devastating, sustained, extra attacks, anti-infantry, anti-monster,
     #anti-vehicle, anti-mounted, anti-psyker
     #sustained_val denotes the number of hits added on a sustained hit -> defaults to 0 for weapons without sustained hits
-    def __init__(self, range, attacks, skill, strength, penetration, damage, abilites:dict[str,bool], sustained_val = 0, rapid_val = 0):
+    def __init__(self,name, range, attacks, skill, strength, penetration, damage, abilites:dict[str,bool], sustained_val = 0, rapid_val = 0):
         self = self
         self.range = range
         self.attacks = attacks
@@ -21,8 +21,20 @@ class weapon:
         self.abilities = abilites
         self.sustained_val = sustained_val
         self.rapid_val = rapid_val
+        self.name = name
                     
     # Getters and Setters
+    def get_name(self):
+        return self._name
+    
+    def set_name(self, value):
+        self._name = value
+
+    def __str__(self):
+        return self.name
+    def __repr__(self):
+        return self.name
+
     def get_range(self):
         return self._range
     
