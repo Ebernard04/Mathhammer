@@ -18,17 +18,27 @@ def main():
             print("model created")
         dpg.add_text("Enter Stats For your model:")
         #stats
-        faction = dpg.add_input_text(label="Faction", default_value="faction")
-        Mname = dpg.add_input_text(label="Name", default_value="Model 1")
-        movem = dpg.add_input_int(label="Movement",min_value=1,default_value=1)
-        toughness = dpg.add_input_int(label="Toughness",min_value=1,default_value=1)
-        save = dpg.add_input_int(label="Save",min_value=2, max_value=6,default_value=2)
-        wounds = dpg.add_input_int(label="Wounds",min_value=1,default_value=1)
-        leadership = dpg.add_input_int(label="Leadership",min_value=2,default_value=1)
-        OC = dpg.add_input_int(label="Objective Control",min_value=1,default_value=1)
+        faction = dpg.add_input_text(tag="mFaction", label="Faction", default_value="faction")
+        Mname = dpg.add_input_text(tag="Mname", label="Name", default_value="Model 1")
+        movem = dpg.add_input_int(tag="move", label="Movement",min_value=1,default_value=1)
+        toughness = dpg.add_input_int(tag="tough", label="Toughness",min_value=1,default_value=1)
+        save = dpg.add_input_int(tag="save", label="Save",min_value=2, max_value=6,default_value=2)
+        wounds = dpg.add_input_int(tag="wound", label="Wounds",min_value=1,default_value=1)
+        leadership = dpg.add_input_int(tag="leader", label="Leadership",min_value=2,default_value=1)
+        oc = dpg.add_input_int(tag="oc", label="Objective Control",min_value=1,default_value=1)
         weap = dpg.add_combo(tag = "dropdown", label = "Weapon", items = default_weap)
         #creation
-        dpg.add_button(label="Create Model", callback= model_callback, user_data=[faction,Mname,movem,toughness,save,wounds,leadership,OC,weap])
+        dpg.add_button(label = "Create Model",
+                       callback = model_callback,
+                       user_data = [dpg.get_value(faction),
+                                    dpg.get_value(Mname),
+                                    dpg.get_value(movem),
+                                    dpg.get_value(toughness),
+                                    dpg.get_value(save),
+                                    dpg.get_value(wounds),
+                                    dpg.get_value(leadership),
+                                    dpg.get_value(oc),
+                                    dpg.get_value(weap)])
 
     with dpg.window(label="Weapon Stats",width=800, height=1600):
         def weapon_callback(sender, app_data, user_data):
@@ -59,6 +69,7 @@ def main():
             print(user_data[6])
             print(default_weap[-1].get_name())
             print("weapon created")
+            dpg.configure_item(weap,items=default_weap)
         dpg.add_text("Enter Stats For your weapon:")
         #stats
         range = dpg.add_input_int(label="Range - 0 for melee",min_value=0,default_value=0)
@@ -70,7 +81,15 @@ def main():
         #label
         Wname = dpg.add_input_text(label="Name", default_value="Weapon 1")
         #creation
-        dpg.add_button(label="Create Weapon", callback= weapon_callback, user_data=[range,attacks,skill,strength,pen,damage,Wname.value])
+        dpg.add_button(label="Create Weapon", 
+                       callback= weapon_callback, 
+                       user_data=[dpg.get_value(range),
+                                  dpg.get_value(attacks),
+                                  dpg.get_value(skill),
+                                  dpg.get_value(strength),
+                                  dpg.get_value(pen),
+                                  dpg.get_value(damage),
+                                  dpg.get_value(Wname)])
         
         
    
