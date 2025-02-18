@@ -1,21 +1,33 @@
 from Sourcecode import *
 import dearpygui.dearpygui as dpg
 
-
+#function to instanciate default weapons for use
 def create_default_weapons():
-    res = [close_combat_weapon(),bolt_pistol()]
+    res = [close_combat_weapon(),bolt_pistol(),boltgun(),bolt_rifle()]
+    return res
+#function to create default models for use
+def create_default_models():
+    res = [intercessor()]
     return res
 
-default_weap = create_default_weapons()
+#list of the default weapons (will be where all weapons are added)
+weapons = create_default_weapons()
+#list of default models (will be where all models are added)
+models_yup = create_default_models()
 
 def main():
     
     dpg.create_context()
     dpg.create_viewport(title='Simulator Tester', width=1600, height=1600)
 
-    with dpg.window(label="Model Stats",width=800, height=1600, pos=[800,0]):
+    with dpg.window(label="Unit Stats", width=800, height=400, pos=[0,400]):
+        dpg.add_text("Unit things here:")
+        mods = dpg.add_combo(label = "Model", items = models_yup)
+
+    with dpg.window(label="Model Stats",width=800, height=400, pos=[800,0]):
         def model_callback(sender, app_data, user_data):
-            print("model created")
+            models.append(Model(user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],user_data[6],user_data[7],False,[],user_data[8]))
+            #dpg.configure_item(mods,models)
         dpg.add_text("Enter Stats For your model:")
         #stats
         faction = dpg.add_input_text(tag="mFaction", label="Faction", default_value="faction")
@@ -26,7 +38,7 @@ def main():
         wounds = dpg.add_input_int(tag="wound", label="Wounds",min_value=1,default_value=1)
         leadership = dpg.add_input_int(tag="leader", label="Leadership",min_value=2,default_value=1)
         oc = dpg.add_input_int(tag="oc", label="Objective Control",min_value=1,default_value=1)
-        weap = dpg.add_combo(tag = "dropdown", label = "Weapon", items = default_weap)
+        weap = dpg.add_combo(tag = "dropdown", label = "Weapon", items = weapons)
         #creation
         dpg.add_button(label = "Create Model",
                        callback = model_callback,
@@ -40,7 +52,7 @@ def main():
                                     dpg.get_value(oc),
                                     dpg.get_value(weap)])
 
-    with dpg.window(label="Weapon Stats",width=800, height=1600):
+    with dpg.window(label="Weapon Stats",width=800, height=400):
         def weapon_callback(sender, app_data, user_data):
             weapon_attributes = {"assault": False,
                                     "rapid fire": False,
@@ -64,12 +76,12 @@ def main():
                                     "anti-mounted": False,
                                     "anti-psyker": False
                                 }
-            default_weap.append(weapon(user_data[6],user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],weapon_attributes))
+            weapons.append(weapon(user_data[6],user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],weapon_attributes))
             #weap.__setattr__("item", default_weap)
             print(user_data[6])
-            print(default_weap[-1].get_name())
+            print(weapons[-1].get_name())
             print("weapon created")
-            dpg.configure_item(weap,items=default_weap)
+            dpg.configure_item(weap,items=weapons)
         dpg.add_text("Enter Stats For your weapon:")
         #stats
         range = dpg.add_input_int(label="Range - 0 for melee",min_value=0,default_value=0)
@@ -91,7 +103,7 @@ def main():
                                   dpg.get_value(damage),
                                   dpg.get_value(Wname)])
         
-        
+   
    
         
     dpg.setup_dearpygui()
