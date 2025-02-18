@@ -26,8 +26,8 @@ def main():
 
     with dpg.window(label="Model Stats",width=800, height=400, pos=[800,0]):
         def model_callback(sender, app_data, user_data):
-            models.append(Model(user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],user_data[6],user_data[7],False,[],user_data[8]))
-            #dpg.configure_item(mods,models)
+            models_yup.append(Model(user_data[0],user_data[1],user_data[2],user_data[3],user_data[4],user_data[5],user_data[6],user_data[7],False,[],user_data[8]))
+            dpg.configure_item(mods,items=models_yup)
         dpg.add_text("Enter Stats For your model:")
         #stats
         faction = dpg.add_input_text(tag="mFaction", label="Faction", default_value="faction")
