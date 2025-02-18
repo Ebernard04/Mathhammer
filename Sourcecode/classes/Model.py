@@ -27,6 +27,16 @@ class Model:
         self.fnp_val = fnp_val #what is the roll for feel no pain
 
     # Getters and Setters
+    def __str__(self):
+        res = "A "+ self.name + " equipped with: "
+        #for x in self.melee:
+        #    res+= x + " "
+        #for y in self.ranged:
+        #    res+= y+ " "
+        return res
+    def __repr__(self):
+        return self.name
+
     def get_faction(self):
         return self._faction
     
