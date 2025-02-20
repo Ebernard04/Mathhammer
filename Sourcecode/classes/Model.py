@@ -28,11 +28,7 @@ class Model:
 
     # Getters and Setters
     def __str__(self):
-        res = "A "+ self.name + " equipped with: "
-        #for x in self.melee:
-        #    res+= x + " "
-        #for y in self.ranged:
-        #    res+= y+ " "
+        res = "A "+ self.name + " model"
         return res
     def __repr__(self):
         return self.name

@@ -7,7 +7,7 @@ class Unit:
         self.current_size = max_size
         self.max_size = max_size
         self.alive = True
-        self.models = self.models #will be a tuple of models
+        self.models = models #will be a tuple of models
 
     # Getters and Setters
     def get_current_size(self):

@@ -1,5 +1,6 @@
 from Sourcecode import *
 import dearpygui.dearpygui as dpg
+import copy
 
 #function to instanciate default weapons for use
 def create_default_weapons():
@@ -10,10 +11,17 @@ def create_default_models():
     res = [intercessor()]
     return res
 
+#function to create default units for use
+def create_default_units():
+    res = [intercessor_squad]
+    return res
+
 #list of the default weapons (will be where all weapons are added)
 weapons = create_default_weapons()
 #list of default models (will be where all models are added)
 models_yup = create_default_models()
+#list of default units (will be where all units are added)
+unit_list = create_default_units()
 
 def main():
     
@@ -21,8 +29,18 @@ def main():
     dpg.create_viewport(title='Simulator Tester', width=1600, height=1600)
 
     with dpg.window(label="Unit Stats", width=800, height=400, pos=[0,400]):
+        def unit_callback(sender, app_data, user_data):
+            m = [user_data[0]]
+            x = 1
+            while x < user_data[1]:
+                m.append(copy.deepcopy(user_data[0]))
+                x+=1
+            tup = tuple(m)
+            unit_list.append(Unit(user_data[1],tup))
         dpg.add_text("Unit things here:")
         mods = dpg.add_combo(label = "Model", items = models_yup)
+        size = dpg.add_input_int(label = "Number of models", min_value=1, default_value=1)
+        dpg.add_button(label="Create Unit",callback = unit_callback, user_data=[dpg.get_value(mods),dpg.get_value(size)])
 
     with dpg.window(label="Model Stats",width=800, height=400, pos=[800,0]):
         def model_callback(sender, app_data, user_data):
