@@ -34,118 +34,118 @@ class Model:
         return self.name
 
     def get_faction(self):
-        return self._faction
+        return self.faction
     
     def set_faction(self, value):
-        self._faction = value
+        self.faction = value
 
     def get_name(self):
-        return self._name
+        return self.name
     
     def set_name(self, value):
-        self._name = value
+        self.name = value
 
     def get_movement(self):
-        return self._movement
+        return self.movement
     
     def set_movement(self, value):
-        self._movement = value
+        self.movement = value
 
     def get_toughness(self):
-        return self._toughness
+        return self.toughness
     
     def set_toughness(self, value):
-        self._toughness = value
+        self.toughness = value
 
     def get_save(self):
-        return self._save
+        return self.save
     
     def set_save(self, value):
-        self._save = value
+        self.save = value
 
     def get_wound(self):
-        return self._wound
+        return self.wound
     
     def set_wound(self, value):
-        self._wound = value
+        self.wound = value
 
     def get_leadership(self):
-        return self._leadership
+        return self.leadership
     
     def set_leadership(self, value):
-        self._leadership = value
+        self.leadership = value
 
     def get_objective_control(self):
-        return self._objective_control
+        return self.objective_control
     
     def set_objective_control(self, value):
-        self._objective_control = value
+        self.objective_control = value
 
     def get_battleshocked(self):
-        return self._battleshocked
+        return self.battleshocked
     
     def set_battleshocked(self, value):
-        self._battleshocked = value
+        self.battleshocked = value
 
     def get_alive(self):
-        return self._alive
+        return self.alive
     
     def set_alive(self, value):
-        self._alive = value
+        self.alive = value
 
     def get_melee(self):
-        return self._melee
+        return self.melee
     
     def set_melee(self, value):
-        self._melee = value
+        self.melee = value
 
     def get_ranged(self):
-        return self._ranged
+        return self.ranged
     
     def set_ranged(self, value):
-        self._ranged = value
+        self.ranged = value
 
     def get_invuln_save(self):
-        return self._invuln_save
+        return self.invuln_save
     
     def set_invuln_save(self, value):
-        self._invuln_save = value
+        self.invuln_save = value
 
     def get_invuln_value(self):
-        return self._invuln_value
+        return self.invuln_value
     
     def set_invuln_value(self, value):
-        self._invuln_value = value
+        self.invuln_value = value
 
     def get_crit_save(self):
-        return self._crit_save
+        return self.crit_save
     
     def set_crit_save(self, value):
-        self._crit_save = value
+        self.crit_save = value
 
     def get_sv_reroll_ones(self):
-        return self._sv_reroll_ones
+        return self.sv_reroll_ones
     
     def set_sv_reroll_ones(self, value):
-        self._sv_reroll_ones = value
+        self.sv_reroll_ones = value
 
     def get_sv_reroll_all(self):
-        return self._sv_reroll_all
+        return self.sv_reroll_all
     
     def set_sv_reroll_all(self, value):
-        self._sv_reroll_all = value
+        self.sv_reroll_all = value
 
     def get_fnp(self):
-        return self._fnp
+        return self.fnp
     
     def set_fnp(self, value):
-        self._fnp = value
+        self.fnp = value
 
     def get_fnp_val(self):
-        return self._fnp_val
+        return self.fnp_val
     
     def set_fnp_val(self, value):
-        self._fnp_val = value
+        self.fnp_val = value
 
 
     #function to determine how many wounds are saved vs go through

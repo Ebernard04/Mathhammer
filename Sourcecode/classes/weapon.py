@@ -36,58 +36,58 @@ class weapon:
         return self.name
 
     def get_range(self):
-        return self._range
+        return self.range
     
     def set_range(self, value):
-        self._range = value
+        self.range = value
 
     def get_attacks(self):
-        return self._attacks
+        return self.attacks
     
     def set_attacks(self, value):
-        self._attacks = value
+        self.attacks = value
     
     def get_skill(self):
-        return self._skill
+        return self.skill
     
     def set_skill(self, value):
-        self._skill = value
+        self.skill = value
     
     def get_strength(self):
-        return self._strength
+        return self.strength
     
     def set_strength(self, value):
-        self._strength = value
+        self.strength = value
     
     def get_penetration(self):
-        return self._penetration
+        return self.penetration
     
     def set_penetration(self, value):
-        self._penetration = value
+        self.penetration = value
     
     def get_damage(self):
-        return self._damage
+        return self.damage
     
     def set_damage(self, value):
-        self._damage = value
+        self.damage = value
     
     def get_abilities(self):
-        return self._abilities
+        return self.abilities
     
     def set_abilities(self, value):
-        self._abilities = value
+        self.abilities = value
     
     def get_sustained_val(self):
-        return self._sustained_val
+        return self.sustained_val
     
     def set_sustained_val(self, value):
-        self._sustained_val = value
+        self.sustained_val = value
     
     def get_rapid_val(self):
-        return self._rapid_val
+        return self.rapid_val
     
     def set_rapid_val(self, value):
-        self._rapid_val = value
+        self.rapid_val = value
     #function to roll to hit on weapon
     # takes in modifier for hitting and then a decent amount of other characteristics   
     # fish tells you if you will reroll all non critical hits that you can vs only rerolling non hits if able 

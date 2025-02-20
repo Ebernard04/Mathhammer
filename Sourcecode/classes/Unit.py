@@ -11,28 +11,31 @@ class Unit:
 
     # Getters and Setters
     def get_current_size(self):
-        return self._current_size
+        return self.current_size
     
     def set_current_size(self, value):
-        self._current_size = value
+        self.current_size = value
 
     def get_max_size(self):
-        return self._max_size
+        return self.max_size
     
     def set_max_size(self, value):
-        self._max_size = value
+        self.max_size = value
 
     def get_alive(self):
-        return self._alive
+        return self.alive
     
     def set_alive(self, value):
-        self._alive = value
+        self.alive = value
 
     def get_models(self):
-        return self._models
+        return self.models
     
     def set_models(self, value):
-        self._models = value
+        self.models = value
+
+    def get_toughness(self):
+        return self.models[0].get_toughness()
 
     def attack(self, toughness, distance, hit_mod, wound_mod):
         ## array should have format [wounds, dev wounds, pen value, damage per wound]
