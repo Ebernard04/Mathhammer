@@ -13,7 +13,7 @@ def create_default_models():
 
 #function to create default units for use
 def create_default_units():
-    res = [intercessor_squad]
+    res = [intercessor_squad()]
     return res
 
 #list of the default weapons (will be where all weapons are added)
@@ -29,11 +29,19 @@ def main():
     dpg.create_viewport(title='Simulator Tester', width=1600, height=800)
 
     with dpg.window(label="Simulation Settings", width=800, height=400, pos=[800,400]):
+        def sim_callback(sender, app_data, user_data):
+            tough = 3#user_data[1].get_toughness()
+            print(user_data)
+            #r = user_data[2]
+            #for x in range(0,r):
+            dealt = user_data[0].attack(tough, user_data[3], 0, 0)
+            print(dealt)
         dpg.add_text("Select your units:")
         atk = dpg.add_combo(label = "Attackers", items = unit_list)
         tgt = dpg.add_combo(label = "Target", items = unit_list)
         sim = dpg.add_input_int(label = "Number of simulations", default_value = 1)
-        dpg.add_button(label= "Run Simulation")
+        dist = dpg.add_input_double(label= "Distance between units (in inches)", default_value = 0)
+        dpg.add_button(label= "Run Simulation", callback=sim_callback, user_data= [dpg.get_value(atk),dpg.get_value(tgt), dpg.get_value(sim), dpg.get_value(dist)])
 
     with dpg.window(label="Unit Stats", width=800, height=400, pos=[0,400]):
         def unit_callback(sender, app_data, user_data):
@@ -45,7 +53,7 @@ def main():
             tup = tuple(m)
             unit_list.append(Unit(user_data[1],tup))
             dpg.configure_item(atk, items=unit_list)
-            dpg.configure_item(tgt,items=unit_list)
+            dpg.configure_item(tgt, items=unit_list)
         dpg.add_text("Unit things here:")
         mods = dpg.add_combo(label = "Model", items = models_yup)
         size = dpg.add_input_int(label = "Number of models", min_value=1, default_value=1)

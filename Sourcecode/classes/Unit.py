@@ -10,6 +10,13 @@ class Unit:
         self.models = models #will be a tuple of models
 
     # Getters and Setters
+    def __str__(self):
+        res = "A unit of "+ self.models[0].get_name()+ "s"
+        return res
+    def __repr__(self):
+        res = "A unit of "#+ self.current_size #+ " models of "+ self.models[0].get_name()
+        return res
+
     def get_current_size(self):
         return self.current_size
     
