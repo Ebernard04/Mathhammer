@@ -26,7 +26,14 @@ unit_list = create_default_units()
 def main():
     
     dpg.create_context()
-    dpg.create_viewport(title='Simulator Tester', width=1600, height=1600)
+    dpg.create_viewport(title='Simulator Tester', width=1600, height=800)
+
+    with dpg.window(label="Simulation Settings", width=800, height=400, pos=[800,400]):
+        dpg.add_text("Select your units:")
+        atk = dpg.add_combo(label = "Attackers", items = unit_list)
+        tgt = dpg.add_combo(label = "Target", items = unit_list)
+        sim = dpg.add_input_int(label = "Number of simulations", default_value = 1)
+        dpg.add_button(label= "Run Simulation")
 
     with dpg.window(label="Unit Stats", width=800, height=400, pos=[0,400]):
         def unit_callback(sender, app_data, user_data):
@@ -37,6 +44,8 @@ def main():
                 x+=1
             tup = tuple(m)
             unit_list.append(Unit(user_data[1],tup))
+            dpg.configure_item(atk, items=unit_list)
+            dpg.configure_item(tgt,items=unit_list)
         dpg.add_text("Unit things here:")
         mods = dpg.add_combo(label = "Model", items = models_yup)
         size = dpg.add_input_int(label = "Number of models", min_value=1, default_value=1)
